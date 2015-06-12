@@ -1,4 +1,5 @@
 class Article < ActiveRecord::Base
+  paginates_per 20
   include Votable
   belongs_to :user
   has_many :comments

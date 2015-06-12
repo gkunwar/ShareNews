@@ -23,6 +23,8 @@ gem 'validate_url'
 
 gem 'nokogiri'
 
+gem 'kaminari'
+
 group :development, :test do
   gem 'factory_girl_rails'
   gem 'pry-rails'
