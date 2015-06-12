@@ -21,6 +21,8 @@ gem 'spring', group: :development
 gem 'devise'
 gem 'validate_url'
 
+gem 'nokogiri'
+
 group :development, :test do
   gem 'factory_girl_rails'
   gem 'pry-rails'
