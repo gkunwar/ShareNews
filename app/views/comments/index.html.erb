@@ -1,0 +1,22 @@
+<h2><%= link_to @article.title, @article.url %></h2>
+<p>
+  by <%= @article.user.email %>
+  <%= time_ago_in_words(@article.created_at) %> ago
+</p>
+
+<h3>Comments</h3>
+
+<% if user_signed_in? %>
+  <%= form_for [@article, @comment] do |f| %>
+    <%= f.text_area :body, placeholder: 'Enter comment...' %>
+    <%= f.submit 'Add Comment' %>
+  <% end %>
+<% end %>
+
+<% @comments.each do |comment| %>
+  <div class="comment">
+    <hr>
+    <p><%= render 'shared/byline', votable: comment %></p>
+    <%= simple_format(comment.body) %>
+  </div>
+<% end %>

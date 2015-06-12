@@ -20,6 +20,9 @@ Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
 # If you are not using ActiveRecord, you can remove this line.
 ActiveRecord::Migration.maintain_test_schema!
 
+# Make sure the default values for all our factories are valid
+FactoryGirl.lint
+
 RSpec.configure do |config|
   # Removed since we're not using ActiveRecord fixtures
   # config.fixture_path = "#{::Rails.root}/spec/fixtures"
@@ -27,6 +30,9 @@ RSpec.configure do |config|
 
   # Added so we can do `create` instead of `FactoryGirl.create` and etc.
   config.include FactoryGirl::Syntax::Methods
+
+  # Include custom session helpers
+  config.include SessionHelpers
 
   # RSpec Rails can automatically mix in different behaviours to your tests
   # based on their file location, for example enabling you to call `get` and
