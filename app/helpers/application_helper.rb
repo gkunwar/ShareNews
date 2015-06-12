@@ -7,4 +7,10 @@ module ApplicationHelper
 
     already_voted ? content_tag('b', link) : link
   end
+
+  def fetch_domain(url)
+  	require 'uri'
+  	uri = URI.parse(url)
+  	return "#{uri.scheme}://#{uri.host}"
+  end
 end
