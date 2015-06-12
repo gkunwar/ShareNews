@@ -1,13 +1,30 @@
-<h2>Submit article</h2>
-
-<%= form_for @article do |f| %>
-  <div>
-    <%= f.label :title %>
-    <%= f.text_field :title %>
+<div id="loginModal" class="modal show" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog">
+	  <div class="modal-content">
+	      <div class="modal-header">
+	          <%= link_to root_url do %><button type="button" class="close" data-dismiss="modal" aria-hidden="true" onclick="location.href=<%= root_url %>">×</button><%end%>
+	          <h1 class="text-center">Submit Your Link</h1>
+	      </div>
+	      <div class="modal-body">
+	      	<%= form_for @article, class: "form col-md-12 center-block" do |f| %>
+            <div class="form-group">
+						  <label for="title">Title:</label>
+						  <%= f.text_field :title, class: "form-control" %>
+						</div>
+						<div class="form-group">
+						  <label for="pwd">URL:</label>
+						  <%= f.text_field :url, class: "form-control" %>
+						</div>
+            <div class="form-group">
+              <button class="btn btn-primary btn-lg btn-block">Submit</button>
+            </div>
+          <%end%>
+	      </div>
+	      <div class="modal-footer">
+          <div class="col-md-12">
+          	<%= link_to root_url do %><button type="reset" class="btn">Cancel</button><%end%>
+		  		</div>	
+	      </div>
+	  </div>
   </div>
-  <div>
-    <%= f.label :url, 'URL' %>
-    <%= f.text_field :url %>
-  </div>
-  <%= f.submit %>
-<% end %>
+</div>
