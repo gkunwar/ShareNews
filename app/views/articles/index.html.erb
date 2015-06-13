@@ -51,7 +51,7 @@
 	              <div class="row">
 	                <div class="col-xs-9">
 	                  <h4><span class="label label-default"><%= fetch_domain(a.url) %></span></h4><h4>
-	                  <small style="font-family:courier,'new courier';" class="text-muted"><%= time_ago_in_words(a.created_at) %> ago • <%= render 'shared/byline', votable: a %> | <%= link_to pluralize(a.comments.count, 'comment'), article_comments_path(a) %></small>
+	                  <small style="font-family:courier,'new courier';" class="text-muted"><%= time_ago_in_words(a.created_at) %> ago • <span id='voteList-<%= a.id %>'><%= render 'shared/byline', votable: a %></span> | <%= link_to pluralize(a.comments.count, 'comment'), article_comments_path(a) %></small>
 	                  </h4></div>
 	                <div class="col-xs-3"></div>
 	              </div>

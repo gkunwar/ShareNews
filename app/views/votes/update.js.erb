@@ -1,0 +1,1 @@
+$("#voteList-"+"<%= @votable.id %>").html("<%= escape_javascript(render(partial: 'shared/byline', locals: {votable: @votable})) %>");

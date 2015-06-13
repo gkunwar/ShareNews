@@ -4,8 +4,11 @@ class VotesController < ApplicationController
   def update
     vote = Vote.find_or_initialize_by(user: current_user, votable: votable)
     vote.update!(direction: params[:direction])
-
-    redirect_to :back
+    @votable = votable
+    respond_to do |format|
+      format.js { render "update", layout: false, content_type: 'text/javascript' }
+      format.html { redirect_to :back }
+    end
   end
 
   private
