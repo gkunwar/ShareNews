@@ -25,6 +25,8 @@ gem 'nokogiri'
 
 gem 'kaminari'
 
+gem 'draper', '~> 1.3'
+
 group :development, :test do
   gem 'factory_girl_rails'
   gem 'pry-rails'
