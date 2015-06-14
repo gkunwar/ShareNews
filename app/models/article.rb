@@ -7,6 +7,8 @@ class Article < ActiveRecord::Base
   validates :title, presence: true
   validates :url, url: true # Provided by "validate_url" gem
 
+  validates_uniqueness_of :title, :url
+
   before_create :fetch_image_url
 
   private
